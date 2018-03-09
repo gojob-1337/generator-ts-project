@@ -23,8 +23,13 @@ module.exports = class extends Generator {
   }
 
   configuring() {
+    // rename gitignore (else removed by npm)
+    this.fs.copy(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore'),
+    );
+
     this._copy(
-      '.gitignore',
       '.prettierrc',
       'CHANGELOG.md',
       'index.js',
