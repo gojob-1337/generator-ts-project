@@ -1,0 +1,27 @@
+{
+  "name": "@gojob/generator-ts-project",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "TS Boilerplate",
+  "engines": {
+    "yarn": "^1.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gojob-1337/generator-ts-project"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  }
+}
