@@ -1,8 +1,8 @@
 {
   "name": "@gojob/generator-ts-project",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
-  "description": "TS Boilerplate",
+  "description": "TS Boilerplate with jest",
   "engines": {
     "yarn": "^1.5.0"
   },

@@ -1,9 +1,4 @@
-class HW {
-  constructor(public greeting: string) {}
-  log() {
-    process.stdout.write(this.greeting + '\n');
-  }
-}
+import { HW } from './hw';
 
 const hw = new HW('Hello World');
 

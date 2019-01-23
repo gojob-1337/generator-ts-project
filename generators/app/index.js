@@ -6,8 +6,7 @@ module.exports = class extends Generator {
       [
         '@gojob/tslint-config',
         '@types/node',
-        'chokidar-cli',
-        'concurrently',
+        '@types/jest',
         'nodemon',
         'prettier',
         'tslint',
@@ -15,6 +14,8 @@ module.exports = class extends Generator {
         'tslint-plugin-prettier',
         'ts-node',
         'typescript',
+        'jest',
+        'ts-jest',
       ],
       {
         dev: true,
@@ -33,12 +34,14 @@ module.exports = class extends Generator {
       '.prettierrc',
       'CHANGELOG.md',
       'index.js',
+      'jest.json',
       'nodemon.json',
       'README.md',
       'tsconfig.json',
       'tslint.json',
-
       'src/main.ts',
+      'src/hw.ts',
+      'src/hw.test.ts',
     );
   }
 
@@ -51,16 +54,12 @@ module.exports = class extends Generator {
     const pkg = this.fs.readJSON(pkgPath) || {};
 
     const scripts = {
-      'tslint-run': './node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json -t verbose',
-      lint: 'yarn tslint-run',
-      'lint:fix': 'yarn lint --fix',
-      'lint:watch': './node_modules/.bin/chokidar "./src/**/*.ts" -c "yarn lint" --initial --verbose',
-      start: 'yarn lint && yarn start:nolinter',
-      'start:nolinter': 'node index.js',
-      'start:watch': './node_modules/.bin/concurrently -k -p "[{name}]" -n "TypeScript,Node" -c "cyan.bold,green.bold" "yarn run lint:watch" "yarn run start:watch:nolinter"',
-      'start:watch:nolinter': './node_modules/.bin/nodemon --ignore "*.test.ts"',
-      'prestart:prod': './node_modules/.bin/tsc',
-      'start:prod': 'node dist/main.js',
+      test: "jest --silent=false --config=jest.json --testRegex='/src/.*\\.test\\.ts$'",
+      lint: 'tslint -c ./tslint.json -p ./tsconfig.json -t verbose',
+      build: 'tsc -p ./tsconfig.json',
+      watch: 'nodemon',
+      'start:dev': 'node index.js',
+      start: 'node dist/main.js',
     };
 
     pkg['pre-commit'] = pkg['pre-commit'] || [];
