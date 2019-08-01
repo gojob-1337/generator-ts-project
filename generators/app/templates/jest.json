@@ -13,7 +13,7 @@
     "json"
   ],
   "collectCoverageFrom" : [
-    "src/server/**/*.{js,jsx,tsx,ts}",
+    "src/**/*.{js,jsx,tsx,ts}",
     "!**/node_modules/**"
   ],
   "coverageReporters": ["json", "lcov"],
