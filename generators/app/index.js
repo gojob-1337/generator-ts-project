@@ -62,6 +62,9 @@ module.exports = class extends Generator {
       start: 'node dist/index.js',
     };
 
+    pkg.main = pkg.main || 'dist/index.js';
+    pkg.types = pkg.types || 'dist/index.d.ts';
+
     pkg['pre-commit'] = pkg['pre-commit'] || [];
     if (pkg['pre-commit'].indexOf('lint') < 0) {
       pkg['pre-commit'].push('lint');

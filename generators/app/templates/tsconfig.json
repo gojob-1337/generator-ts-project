@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": false,
+    "declaration": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "noImplicitAny": true,
@@ -14,7 +14,7 @@
     "target": "es6",
     "lib": ["es2017"],
     "sourceMap": true,
-    "allowJs": true,
+    "allowJs": false,
     "outDir": "dist",
     "esModuleInterop": true
   },
