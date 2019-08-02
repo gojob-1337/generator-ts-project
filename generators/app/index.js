@@ -39,7 +39,7 @@ module.exports = class extends Generator {
       'README.md',
       'tsconfig.json',
       'tslint.json',
-      'src/main.ts',
+      'src/index.ts',
       'src/hw.ts',
       'src/hw.test.ts',
     );
@@ -59,7 +59,7 @@ module.exports = class extends Generator {
       build: 'tsc -p ./tsconfig.json',
       watch: 'nodemon',
       'start:dev': 'node index.js',
-      start: 'node dist/main.js',
+      start: 'node dist/index.js',
     };
 
     pkg['pre-commit'] = pkg['pre-commit'] || [];
